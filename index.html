@@ -3,6 +3,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="/assets/images/ultracustomizer_logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Ultra Customizer RGB Maker</title>
     <meta name="twitter:title" content="Ultra Customizer RGB Maker">
     <meta name="twitter:description" content="Ultra Customizer RGB Maker. Useful for creating gradients to use in button names and lore.">
@@ -10,14 +11,14 @@
   </head>
 
   <body id="bg" class="container" style="font-family: Quicksand;">
-
+  <div id="particles-js"></div>
     <div id="header">
       <h1 id="title">Ultra Customizer RGB Maker</h1>
       <p id="graylabel1" class="gray" style="padding-bottom: 10px;">Ultra Customizer RGB Maker. Useful for creating gradients to use in button names and lore.</p>
     </div>
 
     <div id="input" class="col-md-2" style="padding-left: 0;">
-      <label id="label1" for="color1">First Hex Color</label> 
+      <label id="label1" for="color1">First Hex Color</label>
       <input style="border-radius: 10px; position: inherit;" class="form-control col-md-4" id="color1" name="color1" value="952FEE" data-jscolor="{preset:'small dark', position:'right'}" oninput="updateSpitter(event)" onchange="updateSpitter(event)">
       <label id="label2" for="color2">Second Hex Color</label>
       <input style="border-radius: 10px; position: inherit;" class="form-control col-md-3" id="color2" name="color2" value="#52A7FD" data-jscolor="{preset:'small dark', position:'right'}" oninput="updateSpitter(event)" onchange="updateSpitter(event)">
@@ -77,8 +78,15 @@
 
     <div id="textUC" class="minecraft" style="word-wrap: break-word;"></div>
 
+
     <script src="script.js"></script>
     <script src="jscolor.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script>
+      particlesJS.load('particles-js', 'particles.json', function(){
+        console.log('particles.json loaded...')
+      })
+    </script>
   </body>
 
 </html>

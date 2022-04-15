@@ -1,6 +1,19 @@
 .color {
   width: 100%;
 }
+#particles-js {
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    pointer-events: none;
+    height: 100vh;
+    width: 100vw;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    display: block;
+	overflow: hidden;
+}
 .darktextboxes {
   background-color:#1F2933;
   border-color:#952FEE;
@@ -19,7 +32,7 @@
   color:darkred;
 }
 .pp::-webkit-scrollbar {
-  display: none; 
+  display: none;
 }
 .pp {
   -ms-overflow-style: none; scrollbar-width: none;
@@ -112,13 +125,6 @@ select.dark {
 }
 .minecraftstrike {
   text-decoration: line-through;
-}
-footer{
-  display: table;
-  text-align: center;
-  margin-left:0;
-  margin-right:auto;
-  margin-top:120px;
 }
 #title {
     background: linear-gradient(to right, #6666ff, #0099ff , #00ff00, #ff3399, #6666ff);
