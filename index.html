@@ -1,18 +1,27 @@
 <html>
   <head>
+    <title>Ultra Customizer RGB Maker</title>
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="/assets/images/ultracustomizer_logo.png" type="image/x-icon">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Ultra Customizer RGB Maker</title>
-    <meta name="twitter:title" content="Ultra Customizer RGB Maker">
-    <meta name="twitter:description" content="Ultra Customizer RGB Maker. Useful for creating gradients to use in button names and lore.">
-    <meta name="description" content="Ultra Customizer RGB Maker. Useful for creating gradients to use in button names and lore.">
+
+    <meta name="og:title" content="Ultra Customizer RGB Maker">
+    <meta name="og:description" content="Ultra Customizer RGB Maker. Useful for creating gradients to use in button names and lore.">
+    <meta property="og:image" content="assets/images/ultracustomizer_banner.png">
+    <meta property="og:image:width" content="512">
+    <meta property="og:image:height" content="512">
+
+    <meta charset="UTF-8">
+    <meta name="author" content="Fedee">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
 
   <body id="bg" class="container" style="font-family: Quicksand;">
   <div id="particles-js"></div>
+
     <div id="header">
       <h1 id="title">Ultra Customizer RGB Maker <a href="https://www.spigotmc.org/resources/ultra-customizer.49330/"><img id="banner" src="assets\images\ultracustomizer_banner.png" alt="UltraCustomizer Banner"></a></h1>
       <p id="graylabel1" class="gray" style="padding-bottom: 10px;">Ultra Customizer RGB Maker. Useful for creating gradients to use in button names and lore.</p>
@@ -29,6 +38,7 @@
       <input style="border-radius: 10px; position: inherit; display: none;" class="form-control col-md-1" id="color4" name="color4" value="FFFFFF" data-jscolor="{preset:'small dark', position:'right'}" oninput="updateSpitter(event)" onchange="updateSpitter(event)">
       <label id="label5" for="steps">Message</label>
       <input style="border-radius: 10px; position: inherit;" class="form-control col-md-2" id="nickname" name="nickname" type="text" placeholder="Message" value="Ultra Customizer" oninput="updateSpitter(event);" onchange="updateSpitter(event)">
+
       <div id="options">
         <div id="typeslist">
           <label style="margin-bottom: 0px; margin-top: 15px;">Type</label>
@@ -40,6 +50,7 @@
             <option value="4">MOTD (\u007Ax...)</option>
           </select>
         </div>
+
         <div id="coloramountlist">
           <label style="margin-bottom: 0px; margin-top: 15px;">Number of colors</label>
           <select style="width:100%; border-radius: 10px; padding-right: 6px; padding-left: 6px; padding-top: 6px; padding-bottom: 6px;" type="select" id="numOfColors" onchange="numberOfColors = this.options[this.selectedIndex].innerText; updateSpitter(event); hideColors();">
@@ -48,6 +59,7 @@
             <option value="4">4</option>
           </select>
         </div>
+
         <div id="bald">
           <input type="checkbox" id="bold" onclick="updateSpitter(event);">
           <label for="bold" style="margin-bottom: 0px;margin-top: 15px;"> Bold output</label>
@@ -70,6 +82,7 @@
         </div>
       </div>
     </div>
+
     <div id="output">
       <label id="label4" for="spitter">Output</label>
       <label id="graylabel2" class="gray" for="spitter" style="font-weight: normal;">Copy-paste this for RGB text!</label>
@@ -82,7 +95,6 @@
    <footer>
   <p>Design from <a href="https://rgb.birdflop.com">Birdflop RGB</a>, My Github <a href="https://github.com/Fedee0">Profile</a> <a href="https://github.com/Fedee0"><i class="fa fa-github"></i></a></p>
    </footer>
-
 
     <script src="script.js"></script>
     <script src="jscolor.js"></script>
