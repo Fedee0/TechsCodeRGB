@@ -16,9 +16,8 @@
 }
 footer{
   display: table;
-  margin-left:450px;
-  margin-right:370px;
-  margin-top:240px;
+  align-content: display: flex; width: 100%; align-items: center;;
+  margin-top:280px;
   font-family: MinecraftItalic;
 }
 .darktextboxes {
