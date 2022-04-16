@@ -14,6 +14,13 @@
     display: block;
 	overflow: hidden;
 }
+footer{
+  display: table;
+  margin-left:450px;
+  margin-right:auto;
+  margin-top:240px;
+  font-family: MinecraftItalic;
+}
 .darktextboxes {
   background-color:#1F2933;
   border-color:#952FEE;
