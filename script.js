@@ -8,7 +8,7 @@ const nickName = document.getElementById("nickname");
 const textUC = document.getElementById("textUC");
 const textUCP = document.createElement("p");
 let newNick = nickName.value;
-let rgbtype = 'Ultra Customizer {#rrggbb}';
+let rgbtype = 'TechsCode {#rrggbb>}';
 let numberOfColors = 2;
 document.getElementById('darkmode').checked = true
 darkMode()
@@ -103,10 +103,10 @@ function convertToRGB (hex) {
 function generateColor(colorStart,colorEnd,colorCount){
 
 	// The beginning of your gradient
-	let start = convertToRGB (colorStart);    
+	let start = convertToRGB (colorStart);
 
 	// The end of your gradient
-	let end   = convertToRGB (colorEnd);    
+	let end   = convertToRGB (colorEnd);
 
 	// The number of colors to compute
 	let len = colorCount;
@@ -115,21 +115,21 @@ function generateColor(colorStart,colorEnd,colorCount){
 	let alpha = 0.0;
 
 	let result = [];
-	
+
 	for (i = 0; i < len; i++) {
 		let c = [];
 		alpha += (1.0/len);
-		
+
 		c[0] = start[0] * alpha + (1 - alpha) * end[0];
 		c[1] = start[1] * alpha + (1 - alpha) * end[1];
 		c[2] = start[2] * alpha + (1 - alpha) * end[2];
 
 		result.push(convertToHex (c));
-		
+
 	}
-	
+
 	return result;
-	
+
 }
 
 function combineColors(gradient1,gradient2) {
@@ -160,7 +160,7 @@ function updateSpitter(event) {
   let gradientThirds2 = generateColor(val3El.value,val2El.value,thirds)
   let gradientThirds3 = generateColor(val4El.value,val3El.value,half)
   let essentialscolorsout = [];
-  let luckpermscolorsout = [];
+  let techscodecolorsout = [];
   let othercolorsout = [];
   // the pre element where we spit array to user
   let spitter = document.getElementById("spitter");
@@ -171,12 +171,29 @@ function updateSpitter(event) {
   }else if (numberOfColors == 3) {
     colors = combineColors(gradientHalf1,gradientHalf2)
   }else if (numberOfColors == 4) {
-    let uwu = combineColors(gradientThirds1,gradientThirds2)
-    colors = combineColors(uwu,gradientThirds3)
+    let colorss = combineColors(gradientThirds1,gradientThirds2)
+    colors = combineColors(colorss,gradientThirds3)
   }
 
   let nickspaced = newNick.split("");
   let colorspp = ('&' + colors.join('').split('').join('&')).match(/.{1,12}/g);
+  if (document.getElementById('bold').checked == true) {
+    boldtype = "&l"
+  } else {
+    boldtype = ""; }
+  if (document.getElementById('italics').checked == true) {
+    italicstype = "&o"
+  } else {
+    italicstype = ""; }
+    if (document.getElementById('underline').checked == true) {
+      underlinetype = "&n"
+    } else {
+      underlinetype = ""; }
+      if (document.getElementById('strike').checked == true) {
+        striketype = "&m"
+      } else {
+        striketype = ""; }
+  techscodecolorsout = '{#' + val1El.value.replace(/#/, '') + '>}' + boldtype + italicstype + underlinetype + striketype + newNick + '{#' + val2El.value.replace(/#/, '') + '<}'
   for (let i = 0; i < newNick.length; i++) {
     colorspp[i] = colorspp[i].replace('&', '&x&');
     if (document.getElementById('bold').checked == true) nickspaced[i] = '&l' + nickspaced[i];
@@ -184,33 +201,51 @@ function updateSpitter(event) {
     if (document.getElementById('underline').checked == true) nickspaced[i] = '&n' + nickspaced[i];
     if (document.getElementById('strike').checked == true) nickspaced[i] = '&m' + nickspaced[i];
     essentialscolorsout[i] = '&#' + colors[i] + nickspaced[i]
-    luckpermscolorsout[i] = '{#' + colors[i] + '}' + nickspaced[i]
     othercolorsout[i] = colorspp[i] + nickspaced[i]
   }
   let output = ''
   if (rgbtype.includes('x')) {
     if (rgbtype.includes('u')) {
       output = othercolorsout.join('').replace(/&/g, '\\u00A7');
+      var childNodes = document.getElementById("coloramountlist").getElementsByTagName('*');
+      for (var node of childNodes) {
+      node.disabled = false;
+  }
     } else if (rgbtype.includes('§')) {
       output = othercolorsout.join('').replace(/&/g, '§');
+      var childNodes = document.getElementById("coloramountlist").getElementsByTagName('*');
+      for (var node of childNodes) {
+      node.disabled = false;
+  }
     } else {
       output = othercolorsout.join('');
+      var childNodes = document.getElementById("coloramountlist").getElementsByTagName('*');
+      for (var node of childNodes) {
+      node.disabled = false;
+  }
     }
   } else if (rgbtype.includes('&#')) {
     output = essentialscolorsout.join('');
+    var childNodes = document.getElementById("coloramountlist").getElementsByTagName('*');
+    for (var node of childNodes) {
+    node.disabled = false;
+}
   } else {
-    output = luckpermscolorsout.join('');
+    console.log(techscodecolorsout)
+    output = techscodecolorsout
+    var childNodes = document.getElementById("coloramountlist").getElementsByTagName('*');
+    for (var node of childNodes) {
+    node.disabled = true;
+}
   }
   let num = '';
-  if (rgbtype.includes('&#')) num = 8;
-  if (rgbtype.includes('{#')) num = 9;
+  if (rgbtype.includes('&#')) num = 9;
   if (rgbtype.includes('x')) num = 14;
-  if (document.getElementById('bold').checked == true) num = num+2;
-  if (document.getElementById('italics').checked == true) num = num+2;
-  if (document.getElementById('underline').checked == true) num = num+2;
-  if (document.getElementById('strike').checked == true) num = num+2;
-  if (num == 8) output = output.replace(/.{8}(?=\ )/g, '');
-  if (num == 9) output = output.replace(/.{9}(?=\ )/g, '');
+  if (document.getElementById('bold').checked == true && !rgbtype.includes("{#")) num = num+2;
+  if (document.getElementById('italics').checked == true && !rgbtype.includes("{#")) num = num+2;
+  if (document.getElementById('underline').checked == true && !rgbtype.includes("{#")) num = num+2;
+  if (document.getElementById('strike').checked == true && !rgbtype.includes("{#")) num = num+2;
+  if (num == 9) output = output.replace(/.{8}(?=\ )/g, '');
   if (num == 10) output = output.replace(/.{10}(?=\ )/g, '');
   if (num == 11) output = output.replace(/.{11}(?=\ )/g, '');
   if (num == 12) output = output.replace(/.{12}(?=\ )/g, '');
