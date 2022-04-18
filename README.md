@@ -1,4 +1,4 @@
-# Ultra Customizer RGB Maker
+# TechsCode RGB Maker
 This site will help you create awesome gradients for your texts on minecraft. This site was made to support the format of all Ultra/Insane Series plugins like [Ultra Customizer](https://www.spigotmc.org/resources/ultra-customizer.49330/), [Ultra Permissions](https://www.spigotmc.org/resources/ultra-permissions.42678/) and many more. You can find all the plugins [here](https://techscode.com)
 ## Available Formats
 - **Ultra Customizer** - {#rrggbb}
