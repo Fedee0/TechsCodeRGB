@@ -12,13 +12,7 @@
     left: 0;
     right: 0;
     display: block;
-	overflow: hidden;
-}
-footer{
-  display: table;
-  align-content: display: flex; width: 100%; align-items: center;;
-  margin-top:280px;
-  font-family: MinecraftItalic;
+	  overflow: hidden;
 }
 .darktextboxes {
   background-color:#1F2933;
@@ -131,6 +125,14 @@ select.dark {
 }
 .minecraftstrike {
   text-decoration: line-through;
+}
+footer{
+  display: table;
+  display: flex; 
+  width: 100%; 
+  align-items: center;
+  margin-top: 280px;
+  font-family: MinecraftItalic;
 }
 #title {
     background: linear-gradient(to right, #6666ff, #0099ff , #00ff00, #ff3399, #6666ff);
